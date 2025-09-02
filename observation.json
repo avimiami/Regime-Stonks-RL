@@ -1,0 +1,15 @@
+{
+  "datetime": "2024-01-02T10:15:00",
+  "asset": "SPY",
+  "bar": {"open": 430.12, "high": 430.5, "low": 429.8, "close": 430.0, "volume": 12000},
+  "features": {
+    "1m_return": 0.0003,
+    "5m_momentum": 0.002,
+    "60m_vol": 0.0015,
+    "daily_return": -0.01,
+    "news_sentiment": 0.2
+  },
+  "regime": "trend",
+  "inventory": 200,
+  "cash": 950000
+}
