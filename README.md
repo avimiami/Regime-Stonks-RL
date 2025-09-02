@@ -20,3 +20,36 @@ Config-driven: all starting values (initial cash, positions, assets, agent list,
 Agent abstraction: each agent implements a small API (obs → action). Many agents can run simultaneously.
 
 Deterministic / seedable: runs are reproducible when seeded.
+
+
+Market-Agents-Sim/
+├─ README.md
+├─ requirements.txt
+├─ configs/
+│  └─ example_sim.yaml
+├─ data/
+│  ├─ minute/            # 1-min CSVs per asset (or an HDF/parquet store)
+│  ├─ daily/             # daily CSVs per asset
+│  └─ news/              # daily news jsonl/csv aligned by date
+├─ src/
+│  ├─ env/
+│  │  └─ market_env.py   # gym-like env (reset/step)
+│  ├─ agents/
+│  │  ├─ base_agent.py
+│  │  ├─ hedger.py
+│  │  ├─ trend_cta.py
+│  │  ├─ spec_buyer.py
+│  │  └─ old_hands.py
+│  ├─ features/
+│  │  └─ feature_store.py
+│  ├─ regimes/
+│  │  └─ regime_loader.py
+│  ├─ execution/
+│  │  └─ execution_model.py  # slippage/impact model
+│  ├─ metrics/
+│  │  └─ metrics.py
+│  ├─ train/
+│  │  └─ run_sim.py
+│  └─ eval/
+│     └─ plotters.py
+└─ notebooks/
