@@ -1,0 +1,37 @@
+seed: 42
+assets:
+  - symbol: SPY
+    minute_path: data/minute/SPY_1m.csv
+    daily_path: data/daily/SPY_daily.csv
+start:
+  date: 2024-01-01
+  initial_cash: 1_000_000
+  initial_positions:
+    SPY: 0
+simulation:
+  start_time: "09:30"
+  end_time: "16:00"
+  minute_bars_per_day: 390
+execution_model:
+  slippage_per_share: 0.0001   # fraction of price
+  impact_coefficient: 1e-6     # linear impact per share relative to liquidity param
+  liquidity_reference: 100_000 # shares per min used to scale impact
+regimes:
+  # optional path to user-defined regimes file (date -> regime label)
+  regime_path: data/regimes/SPY_regimes.csv
+agents:
+  - name: hedger_1
+    type: Hedger
+    params:
+      target_shares: 1000
+      horizon_minutes: 240
+      max_aggressiveness: 0.2
+  - name: cta_1
+    type: TrendCTA
+    params:
+      lookback: 60
+      entry_threshold: 2.0
+      exit_threshold: 1.0
+metrics:
+  save_path: runs/last_run/
+  per_minute: true
