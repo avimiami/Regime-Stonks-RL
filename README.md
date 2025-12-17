@@ -147,7 +147,7 @@ assets:
 
 start:
   date: 2024-01-01
-  initial_cash: 1_000_000
+  initial_cash: 1000000
   initial_positions:
     SPY: 0
 
@@ -159,7 +159,7 @@ simulation:
 execution_model:
   slippage_per_share: 0.0001      # Fraction of price
   impact_coefficient: 1e-6         # Linear impact per share
-  liquidity_reference: 100_000     # Reference liquidity in shares
+  liquidity_reference: 100000     # Reference liquidity in shares
 
 regimes:
   regime_path: data/regimes/SPY_regimes.csv
